@@ -46,7 +46,11 @@ class UsersRepository implements IUsersRepository {
   }
 
   turnAdmin(receivedUser: User): User {
-    // Complete aqui
+    const userIdx = this.users.findIndex((user) => user.id === receivedUser.id);
+
+    this.users[userIdx].admin = true;
+
+    return this.users[userIdx];
   }
 
   list(): User[] {
